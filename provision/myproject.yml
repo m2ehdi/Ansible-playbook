@@ -1,0 +1,7 @@
+---
+- hosts: myservers
+  vars:         
+        - myvar: "this var is in myproject.yml"
+  roles:
+        - myproject
+
