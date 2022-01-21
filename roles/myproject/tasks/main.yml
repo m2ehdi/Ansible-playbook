@@ -1,0 +1,674 @@
+- name: ----- Create a directory in /home -----
+  file:
+   path: /home/testdir1
+   state: directory
+   owner: root
+   group: root
+   mode:  0755
+  tags: [create_dir1]
+
+- name: ------- Create /home/testdir2 ---- 
+  file: path=/home/testdir2 state=directory owner=root group=root mode=0755 
+  tags: [create_dir2]
+
+- name: ----- Create /home/testdir1 ------
+  file:
+   path: /home/testdir1/file1
+   state: touch
+   owner: root
+   group: root
+   mode:  0644
+  tags: [create_file]
+
+- name: ------- Create /hometestdir2/file2 --------
+  file: path=/home/testdir2/file2 state=touch owner=root group=root mode=0644
+  tags: [create_file]
+
+#- name: ----- define a var -----
+#  set_fact: myvar=123
+#  tags: [var1]
+
+- name: ------- show myvar ------
+  debug: 
+        msg: "{{myvar}}"
+  tags: [var1]
+- name: ---- show user -----
+  debug:
+        msg: "{{user}}"
+  tags: [var2]
+
+- name: ----- show user -----
+  debug:
+        msg: "{{user.email}}"
+  tags: var3
+
+- name: ----- show user_list ------
+  debug:
+        msg: "{{user_list[0]}}"
+  tags: var4 
+
+- name : ---- shell madule ----
+  shell: cat /home/testdir1/file1
+  register: cat
+  tags: shell_mod2
+
+- name: ---- debug-----
+  debug: 
+        msg: "{{cat.stdout}}"
+- name: ---- raw madule -----
+  raw: echo "hi" > /home/raw_out
+  tags: raw_mod
+
+- name: ---- copy---
+  copy:
+   src: myfile
+   dest: /home
+   owner: root
+   group: root
+   mode: 0644
+   backup: yes
+  tags: copy_mod
+
+- name: --- fetch module -----
+  fetch:
+        src: /home/testdir1/file1
+        dest: /home
+  tags: fetch_mod
+
+- name: --- group module ---
+  group:
+        name: anisa
+        state: present
+  tags: group_mod
+
+- name: --- user module -----
+  user:
+        name: devops
+        group: anisa
+        state: present
+        home: /tmp/devops
+        shell: /bin/bash
+  tags: user_mod
+
+- name: ---- yum module -----
+  yum:
+        name: nginx
+        state: present
+  tags: nginx_mod
+
+- name : ------ start nginx service ----
+  service:
+        name: nginx
+        state: started
+        enabled: yes
+  tags: nginx_mod
+
+- name: ---- yum list ---
+  yum:
+        list: ansible
+  register: yum_out
+  tags: yum_list 
+
+- name: --- yum module advance ----
+  yum:
+        name: nginx
+        state: latest
+        security: yes
+        bugfix: yes
+  tags: yum2_mod
+
+- name: ----- template module --------
+  template:
+         src: nginx.conf.j2
+         dest: /etc/nginx/nginx.conf
+         backup: yes
+         force: yes
+  tags: templates_mod
+
+- name: lineinfile module ------
+  lineinfile:
+        path: /etc/nginx/nginx.conf
+        insertafter: '        listen       88;'
+        line: 'list 999999999999999999'
+        backup: yes
+       #state: absent
+  tags: lineinfile_mod
+
+- name: ----- replace mod ------
+  replace:
+        path: /etc/nginx/nginx.conf
+        regexp: '        listen       88;'
+        replace: 'listen 2020'
+        backup: yes
+  tags: replace_mod
+
+- name: ----- service mod ----
+  service:
+        name: nginx
+        enabled: yes
+        state: started
+  tags: service_mod
+
+- name: ---------- archive mod -----------
+  archive:
+        path: /home/testdir1
+        dest: /home/testdir1/test.tar.gz
+        exclude_path:
+                 /home/testdir1/file4
+  tags: archive_mod
+
+- name: --- unarchive mod ----
+  unarchive: 
+        src: test.tar.gz
+        dest: /opt
+        exclude:
+                - f2
+                - f3
+       #remote_src: yes
+  tags: unarchive_mod
+
+- name: ------ wait-for-it ----------
+  wait_for:
+        path: /var/log/httpd/access_log
+        search_regex: "192.168.1.5"
+  tags: wait_mod
+
+- name: --shwo wait --
+  debug:
+        msg: "seen ip"
+  tags: wati_mod
+
+- name: --wait for port 80 ------
+  wait_for:
+        host: 192.168.1.7
+        port: 80
+        delay: 10
+        state: started
+  tags: wait_port
+
+
+- name: ------ ignore error ---
+  command: /bin/false
+  ignore_errors: yes
+  tags: ignore_error
+
+- name: ------     after rebot  msg           -------
+  debug: 
+        msg: "after error"
+  tags: ignore_error
+
+- name: -------- wati_for connecton
+  wait_for_connection:
+                timeout: 10
+                delay: 10
+                sleep: 5
+  tags: wait_for_connection_mod
+
+
+- name: -----reboot machine ----
+  shell: 'sleep 1 && reboot'
+  async: 1
+  poll: 10
+  ignore_errors: yes
+  tags: reboot_machiens
+
+- name: ----- wait_for_connection after reboot  ------
+  wait_for_connection:
+   timeout: 300
+   delay: 5
+   sleep: 5
+  tags: reboot_machiens
+  
+- name: ---after reboot ----
+  debug: 
+        msg: "after reboot"
+  tags: reboot_machines     
+
+- name: ----- reboot machiens------
+  reboot: 
+        reboot_timeout: 100
+  tags: reboot
+
+- name: ------ after reboot mod ---
+  debug:
+        msg: "after reebot mod "
+  tags: reboot
+
+- name: ------- install git ---
+  yum: 
+        name: git
+        state: present
+  tags: install_git 
+
+#- name: ---- git module -----
+#  git: 
+#        repo: http://anisa:anisa@192.168.1.6/git/hello-world
+#        dest: /home/hello_world
+#  tags:
+  
+- name: ------ yum install ntp ----
+  yum:
+        name: ntp
+        state: present
+  tags: install_ntp
+
+- name: --- start and restart ntp --
+  service:
+        name: ntpd
+        enabled: yes
+        state: started
+  tags: ntp_start
+
+- name: ----- template mod ---
+  template:
+        src: ntp.conf.j2
+        dest: /etc/ntp.conf
+  tags: template_ntp
+
+- name: -------           ---------
+  timezone:
+        name: Asia/Tehran
+  tags: timezone_mod
+
+- name: ---- timedatectl via command ----
+  command: timedatectl
+  register: cati
+  tags: timedatectl_mod
+
+- name: ------ rsync mod ----
+  synchronize:
+        src: /home/testansi/
+        dest: /home/testdir1
+        delete: yes
+  tags: rsync_mod
+
+- name: -------- iptables mod -------
+  iptables:
+        chain: INPUT
+        source: 192.168.1.8
+        protocol: tcp
+        destination_port: 80
+        jump: DROP
+        action: insert 
+        state: present
+  tags: iptables_mod
+
+- name: ---- redirec 8080 to 80 ---
+  iptables:
+        table: nat
+        chain: PREROUTING
+        in_interface: enp0s8
+        protocol: tcp
+        destination_port: 8080
+        to_ports: 80
+        jump: REDIRECT
+  tags: iptables2_mod
+
+
+- name: ----- install mariadb  -----------
+  yum:
+      name: mariadb-server
+      state: installed
+  tags: mariadb
+
+- name: ---- start mariadb ------
+  service: 
+        name: mariadb
+        enabled: yes
+        state: started
+  tags: mariadb
+- name: ----- install mariadb -----
+  yum:
+        name: mariadb-server
+        state: installed
+  tags: mariadb
+- name: ----- enable and start mariadb -----
+  service:
+        name: mariadb
+        enabled: yes
+        state: started
+  tags: mariadb
+- name: ----- Install mysql-python ------
+  yum:
+        name: MySQL-python
+        state: installed
+  tags: install_mysql_python
+- name: ------ create a database ------
+  mysql_db:
+        name: mydb
+        state: present
+  tags: mysql_db_mod
+- name: ----- dump a db -----
+  mysql_db:
+        name: mydb
+        state: dump
+        target: /home/mydb_dump.sql
+  tags: dump_db
+- name: --- retore db ---
+  mysql_db:
+        name: mydb
+        state: import
+        target: /home/mydb_db.sql
+  tags: restore_db
+- name: ---- find module -----
+  find:
+        paths: /home
+        pattern: '*.txt,*.conf'
+  tags: find
+- name: ---- local action ----
+  local_action:
+        module: file
+        path: /home/test7
+        state: touch
+  tags: local_action_mod
+- name: ---- create test8 in /home -----
+  file:
+        path: /home/test8
+        state: touch
+        delegate_to: 192.168.1.3
+  tags: test8
+- name: ------ find advance ------
+  local_action:
+        module: find
+        paths: /home
+        pattern: '*.txt'
+        age: -2w
+        size: -1m
+  tags: find_adv
+- name: ------- shwo ansible os family ---------
+  debug: 
+        msg: "{{ansible_os_family}}"
+  tags: os
+- name: ------ set package name --------
+  set_fact:
+        package_name: "httpd"
+  when: ansible_os_family=="Redhat"
+  tags: set_package_name
+- name: ------ set package name --------
+  set_fact:
+        package_name: "apache2"
+  when: ansible_os_family=="Suse"
+  tags: set_package_name
+- name: ------ show package name -------
+  debug:
+        msg:"{{package_name}}"
+  tags: set_package_name
+
+- name: --- lis mariadb packages -----
+  shell: rpm -qa | grep mariadb
+  register: mariadb_rpm
+  tags: check_mariadb_server
+
+- name: ---- cheack if mariadb is installed --
+  debug:
+        msg: "mariadb-server is installed"
+  when: "'mariadb-server' in mariadb_rpm.stdout"
+  tags: check_mariadb_server
+     
+- name: ------- gather the rpm package fact ---
+  package_facts:
+        manager: auto
+  tags: cond
+
+- name: --- check if nginx is installed ---
+  debug:
+        var: ansible_facts.packages['nginx']
+  tags: cond
+
+- name: ------ if nginx is installed ------
+  debug:
+        msg: "nginx is installed"
+  when: "'nginx' in ansible_facts.packages"
+  tags: cond
+- name: ------ check if a variable is defined ---
+  pause:
+        prompt: "The backup path is undefined please provide a path for backup"
+  register: backup_path2
+  when: backup_path is not defined
+  tags: pause_mod
+
+- name: ----- install nginx on centos 7 -----
+  yum:
+     name: [epel-release,nginx]
+     state: present
+  when:
+     - ansible_distribution == "CentOS"
+     - ansible_distribution_major_version == "7"
+  tags: install_nginx_CentOS7
+
+- name: ---- check if nginx-mod-mail is installed --------
+  shell: "rpm -qa | grep nginx"
+  register: rpm_out
+  tags: check
+
+- name:  ----- debug -----
+  debug: 
+        msg: "nginx-mod-mail is installed"
+  when: "'nginx-mod-mail' in rpm_out.stdout"
+  tags: check
+
+- name: ------------- check if /home/dir1 exists ------
+  stat:
+        path: /home/dir1
+  register: stat_out
+  tags: stat_mod
+
+
+- name: -------- debug stat -----------
+  debug:
+        msg: "/home/dir1 exists"
+  when: stat_out.stat.exists
+  tags: stat_mod
+
+- name: --------- cat /home/test1.txt ------
+  shell: cat /home/test1.txt
+  register: catty
+  tags: cond2
+
+- name: ------- if /home/test1.txt contains the word Ansible ---------
+  debug:
+        msg: "/home/test1.txt contains the word Ansible"
+  when: catty.stdout.find('ansible') != -1
+  tags: cond2
+
+
+- name: ------- if var1 or var 2 is true ----------
+  shell: echo "var1"
+  when: var1 or var2 | bool
+  tags: con3
+
+- name: if var1 is false
+  debug:
+        msg: "var 1 is false"
+  when: not var1
+  tags: cond4
+
+- name: confirm file deleted
+  pause:
+     prompt: "are u sure to delete file ?(yes/no)"
+  register: confirm_delete
+  tags: confirm_delete
+
+- name: delete file
+  file:
+     path: /home/test.txt
+     state: absent
+  when: hostvars[play-hosts.0].confirm_delete.user_input | bool
+  tags: confirm_delete
+- name: --- create file a1 and a2 in /home ----
+  file: 
+        path: /home/{{ item }}
+        state: touch
+  with_items:
+        - a1
+        - a2
+  tags: loop1
+# name: -----install apache and gcc---
+# yum:
+#       name: "{{item}}"
+#       state: present
+# with_items:
+#       - httpd
+#       - gcc
+# tgas: loop2
+
+- name: -------- install apache an gcc -----
+  yum:
+        name: ['httpd','gcc']
+        state: present
+  tags: loop3
+
+- name: --- create file a1 and a2 in /home ----
+  file:
+        path: /home/{{ item }}
+        state: touch
+  loop:
+        - a3
+        - a4
+  tags: loop4
+- name: -------- install apche and gcc ------
+  yum:
+        name: "{{}}"
+        state: present
+  tags: loop5
+- name: -------- create user by loop ------
+  user:
+        name: "{{item}}"
+        state: present
+  loop: '{{user_list}}'
+  tags: user
+- name: ---------- upddate nginx and remove httpd -------
+  yum:
+        name: '{{item.name}}'
+        state: '{{item.state}}'
+  with_items:
+        - {name: 'nginx', state: 'latest'}
+        - {name: 'httpd', state: 'absent'}
+  tags: loop6
+
+- name: ------- create multiple data bae ------------- 
+  mysql_db:
+        name: '{{item}}'
+        state: present
+  with_items:
+        - 'clinetdb'
+        - 'employeedb'
+        - 'providerdb'
+  tags: loop7
+
+#- name: -------- create multiple db user --------
+#  mysql_user:
+#        name:    tem}}'
+- name: ------ nested loop -------
+  mysql_user:
+        name: '{{item[0]}}'
+        priv: '{{item[1]}}.*:ALL'
+        append_privs: yes
+        password: 12345
+        login_user: root
+  with_nested:
+        - ['user1','user2']
+        - ['clientdb','employeedb','providerdb']
+  tags: loop8
+- name: ------- loop over a dictionary ----
+  debug:
+       msg: "{{item.key}} - {{item.value}}"
+  loop: "{{my_dic | dict2items}}"
+  tags: loop9
+- name: ------ loop over host inventory -----
+  debug:
+        msg: "{{item}}"
+  loop: "{{groups['myservers']}}"
+  tags: loop10
+- name: ----- loop over host invventory ---
+  debug:
+        msg: "{{}}"
+  loop: "{{}}"
+  tags: loop11
+- name: ------ pause with a loop ---
+  debug:
+        msg: "{{item}}"
+  loop: "{{group['all']}}"
+  loop_control:
+        pause: 10
+  tags: loop12
+- name: ----- tracking the index -------
+  debug:
+        msg: "The {{item}} index is {{my_index}}"
+  loop:
+        - first
+        - second
+        - third
+  loop_control:
+        index_var: my_index
+  tags: loop13
+- name: ------ Retry a task untill a certian cndition is met ------
+  shell: cat /home/test.txt
+  register: catty
+  until: catty.stdout.find('ansible') != -1
+  retries: 3
+  delay: 10
+  tags: loop14
+- name: ------- nginx config -------
+  template:
+        src: nginx.conf.j2
+        dest: /etc/nginx/nginx.conf
+  notify:
+       - restart nginx
+  tags: nginx_service
+- name: ------- install java -------
+  yum:
+        name : java-1.8.0-openjdk-devel
+        state: present
+  tags: install_java
+- name: ----------- download apche tomcat ----------
+  get_url:
+        url: "{{tomcat_url}}"
+        dest: /opt
+  tags: dl_tomcat
+
+- name: ----- extract and start apcche tomcat  ------
+  unarchive:
+        src: "{{tomcat_path}}"
+        dest: /opt
+        remote_src: yes
+  tags: tomcat_ext
+- name: -------- set a softlink for tomcat --------
+  file:
+        src: "{{tomcat_path}}"
+        dest: /opt/tomcat
+        state: link
+  tags: tomcat_softlink
+- name: --------- create tomcat service --------
+  template:
+        src: tomcat.service.j2
+        dest: /etc/systemd/system/tomcat.service
+  tags: tomcat_service
+
+- name: ---------- create tom cat service via template
+  template:
+        src: server.xml.j2
+        dest: /opt/tomcat/conf/server.xml
+  tags: tomcat_service
+- name: ---------- damon reload -----
+  systemd:
+        damon_reload: yes
+  tags: damon
+- name: ------ enable and start tomcat service ------
+  service:
+        name: tomcat
+        enabled: yes
+        state: started
+  tags: start_tomcat
+- name: ---------download waar file for tomcat -------
+  get_url:
+        url: "https://github.com/efsavage/hello-world-war/raw/master/dist/hello-world.war"
+        dest: /opt/tomcat/webapps
+  tags: dl_war
+
+- name: ------ open port 80 via iptable ------
+  iptables:
+        chain: INPUT
+        protocol: tcp
+        destination_port: 80
+        jump: ACCEPT

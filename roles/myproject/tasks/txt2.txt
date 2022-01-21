@@ -1,0 +1,485 @@
+    1  sestatus 
+    2  ifco
+    3  ip a 
+    4  sestatus 
+    5  vim /etc/selinux/config 
+    6  vi /etc/selinux/config 
+    7  service network restart
+    8  ipa 
+    9  ip a
+   10  ping 8.8.8.8
+   11  service network restart
+   12  ip a
+   13  nmtui-edit 
+   14  ifco
+   15  ip -a
+   16  ip a
+   17  service network restartt 
+   18  service network restart
+   19  ip a 
+   20  ip a
+   21  ls
+   22  nmtui-connect 
+   23  service network restartt 
+   24  service network restart
+   25  ifco
+   26  ip  
+   27  ip a 
+   28  ping 8.8.8.8
+   29  ls
+   30  service network restart
+   31  nmtui-connect 
+   32  ping 8.8.8.8
+   33  ip a 
+   34  yum install vim 
+   35  vim /etc/selinux/config 
+   36  shutdown -r now 
+   37  sudo -i
+   38  cat /etc/os-release 
+   39  yum install epel-release
+   40  yum install ansible
+   41  ansible-
+   42  ansible -m ping localhost
+   43  ansible for devops up and runnig books for ansible
+   44  ansible -m ping localhost
+   45  ansible -v
+   46  ansible-inventory anaconda-ks.cfg 
+   47  q
+   48  shutdown now
+   49  ip a
+   50  ssh-copy-id 
+   51  ping 192.168.1.7
+   52  ping 192.168.1.99
+   53  ping 192.168.1.9
+   54  ping 192.168.1.7
+   55  ping 192.168.1.6
+   56  ip a
+   57  ansible -m ping localhost
+   58  vim /etc/host
+   59  vim /etc/ansible/hosts 
+   60  ansible -m ping myservers
+   61  ssh-keygen -f rsa
+   62  ssh-copy-id root@192.168.1.6
+   63  ssh-copy-id root@192.168.1.6 -f
+   64  ssh-copy-id test@192.168.1.6 
+   65  ssh-keygen -f rsa
+   66  ssh-copy-id test@192.168.1.6 
+   67  ssh-keygen -f rsa
+   68  ssh-copy-id test@192.168.1.6 
+   69  ssh-copy-id root@192.168.1.6 
+   70  ansible -m ping myservers
+   71  ssh-copy-id root@192.168.1.6 
+   72  ip a
+   73  ssh-keygen -f rsa
+   74  ssh-copy-id root@192.168.1.6 
+   75  ssh-copy-id root@192.168.1.7
+   76  ssh-keygen -f rsa
+   77  ssh-copy-id root@192.168.1.6
+   78  ssh-keygen -f rsa
+   79  reboot 
+   80  ssh-keygen -f rsa
+   81  ssh-keygen
+   82  ssh-keygen -f rsa
+   83  ssh-keygen
+   84  ssh-keygen -t rsa
+   85  ls
+   86  ssh-copy-id root@192.168.1.6
+   87  ssh-copy-id root@192.168.1.7
+   88  ansible -m ping myservers
+   89  ls
+   90  ansible -m ping myservers
+   91  vim /etc/ansible/hosts 
+   92  ansible -m ping myservers
+   93  vim /etc/ansible/hosts 
+   94  ansible -m ping myservers
+   95  ansible df -h
+   96  top
+   97  ls
+   98  history 
+   99  ansible -m ping myservers
+  100  ping 192.168.1.6
+  101  lscpu 
+  102  ifconfig
+  103  ifconifg
+  104  yum install net-tools
+  105  ifconfig
+  106  clear 
+  107  cat /etc/os-release 
+  108  clear 
+  109  ansible -m ping myservers
+  110  ansible -m ping myservers --limit 192.168.1.6
+  111  ansible -m free -h  myservers --limit 192.168.1.6
+  112  ansible -m "free -h" myservers --limit 192.168.1.6
+  113  ansible -m " free -h " myservers --limit 192.168.1.6
+  114  ansible -a " free -h " myservers --limit 192.168.1.6
+  115  ansible -a "free -h" myservers --limit 192.168.1.6
+  116  ansible -a "free -h" myservers --limit 192.168.1.7
+  117  ansible -b -m yum -a "name=ntp state=present" myservers -K
+  118  vim /etc/sudoers
+  119  ansible man
+  120  man ansible
+  121  clear 
+  122  ansible -b -m yum -a "name=ntp state=present" myservers -K
+  123  ansible -b -m yum -a "name=mtr state=present" myservers -K
+  124  man ansible
+  125  ip a
+  126  sudo -i
+  127  sudo su
+  128  ssh-keygen -f rsa
+  129  ssh-copy-id root@192.168.1.6
+  130  ssh-keygen -f rsa
+  131  ssh-copy-id root@192.168.1.6
+  132  ssh-keygen -f rsa
+  133  cd ~/.ssh
+  134  ssh-copy-id -i id_rsa.pub root@192.168.1.6
+  135  ls
+  136  cat known_hosts 
+  137  ssh-copy-id -i known_hosts root@192.168.1.6
+  138  ip a
+  139  ls -lash
+  140  sudo ssh-keygen -f rsa
+  141  ssh-copy-id root@192.168.1.6
+  142  ssh-copy-id root@192.168.1.6 -f
+  143  ssh-copy-id -f root@192.168.1.6
+  144  ssh-copy-id -f root@192.168.1.7
+  145  ssh-copy-id -f root@192.168.1.cat ~/.ssh/id_rsa.pub7
+  146  cat ~/.ssh/id_rsa.pub
+  147  sudo -i
+  148  ip a
+  149  history 
+  150  ansible -m ping myservers
+  151  ansible -m ping ubuntuserver
+  152  ansible -m ping myservers
+  153  vim /etc/ansible/ansible.cfg 
+  154  vim /etc/ansible/hosts 
+  155  ansible -m ping myservers
+  156  ssh-copy-id -i id_rsa.pub root@192.168.1.3
+  157  ansible -m ping myservers
+  158  vim /etc/ansible/hosts 
+  159  ansible -m ping ubuntuserver
+  160  ansible -m ping ubuntuservers
+  161  ssh-copy-id -i id_rsa.pub root@192.168.1.4
+  162  ansible -m ping ubuntuservers
+  163  ssh-copy-id -i id_rsa.pub root@192.168.1.5
+  164  ssh-copy-id -i id_rsa.pub root@192.168.1.4
+  165  ansible -m ping ubuntuservers
+  166  ansible -m ping myservers
+  167  ls
+  168  pwd
+  169  ls -lahs
+  170  clear 
+  171  w
+  172  ifconfig
+  173  clear 
+  174  ifconfig
+  175  ip address
+  176  clear 
+  177  pwd
+  178  clear 
+  179  w
+  180  vim /etc/ansible/hosts 
+  181  clear 
+  182  celar
+  183  history 
+  184  history | grep
+  185  ip a
+  186  ip a
+  187  history 
+  188  ansible -m ping myservers
+  189  ansible -m ping ubuntuserver
+  190  ansible -m ping myservers
+  191  vim /etc/ansible/ansible.cfg 
+  192  vim /etc/ansible/hosts 
+  193  ansible -m ping myservers
+  194  ssh-copy-id -i id_rsa.pub root@192.168.1.3
+  195  ansible -m ping myservers
+  196  vim /etc/ansible/hosts 
+  197  ansible -m ping ubuntuserver
+  198  ansible -m ping ubuntuservers
+  199  ssh-copy-id -i id_rsa.pub root@192.168.1.4
+  200  ansible -m ping ubuntuservers
+  201  ssh-copy-id -i id_rsa.pub root@192.168.1.5
+  202  ssh-copy-id -i id_rsa.pub root@192.168.1.4
+  203  ansible -m ping ubuntuservers
+  204  ansible -m ping myservers
+  205  ls
+  206  pwd
+  207  ls -lahs
+  208  clear 
+  209  w
+  210  ifconfig
+  211  clear 
+  212  ifconfig
+  213  ip address
+  214  clear 
+  215  pwd
+  216  clear 
+  217  w
+  218  vim /etc/ansible/hosts 
+  219  clear 
+  220  celar
+  221  history 
+  222  history | grep
+  223  history | grep ans
+  224  vim /etc/ansible
+  225  vim /etc/hostname 
+  226  hostname
+  227  vim /etc/hostname 
+  228  reboot 
+  229  ansible -b -m yum -a "name=mtr state=present" myservers -K
+  230  ssh-copy-id -i id_rsa.pub root@192.168.1.4
+  231  sudo ssh-copy-id -i id_rsa.pub root@192.168.1.4
+  232  sudo ssh-copy-id -i id_rsa.pub ubuntu1@192.168.1.4
+  233  ssh-copy-id -i id_rsa.pub m2@192.168.1.5
+  234  ansible -m ping myservers
+  235  ansible -m ping ubuntuservers
+  236  ansible -m ping ubuntuserver
+  237  vim /etc/ansible/hosts 
+  238  ansible -m ping ubuntuservers
+  239  ip a
+  240  ping 192.168.1.4
+  241  ping 192.168.1.5
+  242  ansible -m ping ubuntuservers
+  243  reboot 
+  244  vim /etc/ansible/hosts 
+  245  ansible -m ping myservers
+  246  sudo ssh-copy-id -i id_rsa.pub ubuntu1@192.168.1.7
+  247  sudo ssh-copy-id -i id_rsa.pub root@192.168.1.7
+  248  sudo ssh-copy-id -i id_rsa.pub root@192.168.1.8
+  249  ansible -m ping myservers
+  250  ansible -b -m yum -a "name=mtr state=present" myservers -K
+  251  ls
+  252  cd /home/ansible/
+  253  ls
+  254  cd provision/
+  255  ls
+  256  tree
+  257  cd inventory/
+  258  ls
+  259  vim anisahosts 
+  260  cd ..
+  261  ansible-playbook -i inventory/anisahosts myproject.yml 
+  262  ansible-playbook -i inventory/anisahosts myproject.yml -vvv
+  263  ansible-playbook -i inventory/anisahosts myproject.yml --syntax-check
+  264  ansible-playbook -i inventory/anisahosts myproject.yml --start-at-task
+  265  ansible-playbook -i inventory/anisahosts myproject.yml --flush-cache
+  266  ansible-playbook -i inventory/anisahosts myproject.yml --list-tags
+  267  ansible-playbook -i inventory/anisahosts myproject.yml --diff
+  268  ansible-playbook -i inventory/anisahosts myproject.yml --tags-var1
+  269  vim myproject.yml 
+  270  ansible-playbook -i inventory/anisahosts myproject.yml --tags var1
+  271  ansible-playbook -i inventory/anisahosts myproject.yml 
+  272  ansible-playbook -i inventory/anisahosts myproject.yml --tags var1
+  273  ls
+  274  vim roles/myproject/tasks/main.yml 
+  275  ansible-playbook -i inventory/anisahosts myproject.yml --tags var1
+  276  vim myproject.yml 
+  277  vim roles/myproject/tasks/main.yml 
+  278  vim myproject.yml 
+  279  cd roles/
+  280  ls
+  281  cd myproject/
+  282  ls
+  283  cd vars/
+  284  ls
+  285  vim main.yml 
+  286  cd /home/ansible/provision/
+  287  vim roles/myproject/tasks/main.yml 
+  288  ansible-playbook -i inventory/anisahosts myproject.yml --tags var2
+  289  vim roles/myproject/vars/main.yml 
+  290  ansible-playbook -i inventory/anisahosts myproject.yml --tags var2
+  291  ansible-playbook -i inventory/anisahosts myproject.yml --tags var1
+  292  vim roles/myproject/tasks/main.yml 
+  293  vim roles/myproject/vars/main.yml 
+  294  vim roles/myproject/tasks/main.yml 
+  295  ansible-playbook -i inventory/anisahosts myproject.yml --tags var3
+  296  vim roles/myproject/vars/main.yml 
+  297  vim roles/myproject/tasks/main.yml 
+  298  ansible-playbook -i inventory/anisahosts myproject.yml --tags var2
+  299  ansible-playbook -i inventory/anisahosts myproject.yml --tags var3
+  300  vim roles/myproject/vars/main.yml 
+  301  vim roles/myproject/tasks/main.yml 
+  302  ansible-playbook -i inventory/anisahosts myproject.yml --tags var4
+  303  vim roles/myproject/tasks/main.yml 
+  304  vim roles/myproject/vars/main.yml 
+  305  ansible-playbook -i inventory/anisahosts myproject.yml --tags var4
+  306  vim roles/myproject/vars/main.yml 
+  307  ansible-playbook -i inventory/anisahosts myproject.yml --tags var4
+  308  vim roles/myproject/vars/main.yml 
+  309  vim roles/myproject/tasks/main.yml 
+  310  ansible-playbook -i inventory/anisahosts myproject.yml --tags var4
+  311  vim roles/myproject/tasks/main.yml 
+  312  vim roles/myproject/tasks/main.yml --tags shell_mod2
+  313  vim roles/myproject/tasks/main.yml --tag shell_mod2
+  314  ansible-playbook -i inventory/anisahosts myproject.yml --tags shell_mod2
+  315  vim roles/myproject/tasks/main.yml 
+  316* ansible-playbook -i inventory/anisahosts myproject.yml --tags shell_mod2 
+  317  vim roles/myproject/tasks/main.yml 
+  318  ansible-playbook -i inventory/anisahosts myproject.yml --tags shell_mod2
+  319  vim roles/myproject/tasks/main.yml 
+  320  ansible-playbook -i inventory/anisahosts myproject.yml --tags shell_mod2
+  321  vim roles/myproject/tasks/main.yml 
+  322  ansible-playbook -i inventory/anisahosts myproject.yml --tags shell_mod2
+  323  vim roles/myproject/tasks/main.yml 
+  324  vim roles/myproject/tasks/main.yml ]]
+  325  ansible-playbook -i inventory/anisahosts myproject.yml --tags raw_mod
+  326  vim roles/myproject/tasks/main.yml
+  327  cd ..
+  328  ls
+  329  cd ..
+  330  ls
+  331  cd ansible/
+  332  ls
+  333  cd provision/
+  334  ls
+  335  cd inventory/
+  336  ls
+  337  cd ..
+  338  vim roles/myproject/tasks/main.yml
+  339  ansible-playbook -i inventory/anisahosts myproject.yml --tags copy_mod
+  340  vim roles/myproject/tasks/main.yml
+  341  ansible-playbook -i inventory/anisahosts myproject.yml --tags copy_mod
+  342  vim roles/myproject/tasks/main.yml
+  343  ansible-playbook -i inventory/anisahosts myproject.yml --tags copy_mod
+  344  cd /home/myfile
+  345  cd --
+  346  ls
+  347  cd /home/
+  348  ls
+  349  mkdir myfile
+  350  ls
+  351  cd myfile/
+  352  touch file
+  353  ls
+  354  pwd
+  355  cd --
+  356  cd /home/ansible/provision/
+  357  ls
+  358  ansible-playbook -i inventory/anisahosts myproject.yml --tags copy_mod
+  359  vim roles/myproject/tasks/main.yml
+  360  cd /home/myfile/file 
+  361  vim roles/myproject/tasks/main.yml
+  362  ansible-playbook -i inventory/anisahosts myproject.yml --tags copy_mod
+  363  vim roles/myproject/tasks/main.yml
+  364  ansible-playbook -i inventory/anisahosts myproject.yml --tags copy_mod
+  365  vim roles/myproject/tasks/main.yml
+  366  ansible-playbook -i inventory/anisahosts myproject.yml --tags copy_mod
+  367  vim roles/myproject/tasks/main.yml
+  368  ansible-playbook -i inventory/anisahosts myproject.yml --tags copy_mod
+  369  ansible-playbook -i inventory/anisahosts myproject.yml --tags copy_mod -vvvvvv
+  370  ls
+  371  mkdir myfile
+  372  touch file
+  373  ansible-playbook -i inventory/anisahosts myproject.yml --tags copy_mod 
+  374  vim roles/myproject/tasks/main.yml
+  375  ansible-playbook -i inventory/anisahosts myproject.yml --tags copy_mod 
+  376  vim roles/myproject/tasks/main.yml
+  377  ansible-playbook -i inventory/anisahosts myproject.yml --tags fetch_mod 
+  378  vim roles/myproject/tasks/main.yml
+  379  ansible-playbook -i inventory/anisahosts myproject.yml --tags fetch_mod 
+  380  vim roles/myproject/tasks/main.yml
+  381  ansible-playbook -i inventory/anisahosts myproject.yml --tags fetch_mod 
+  382  vim roles/myproject/tasks/main.yml
+  383  ansible-playbook -i inventory/anisahosts myproject.yml --tags fetch_mod 
+  384  ls
+  385  cd file 
+  386  cat file 
+  387  vim roles/myproject/tasks/main.yml
+  388  ls
+  389  cat file 
+  390  vim roles/myproject/tasks/main.yml
+  391  ansible-playbook -i inventory/anisahosts myproject.yml --tags group_mod
+  392  vim roles/myproject/tasks/main.yml
+  393  ansible-playbook -i inventory/anisahosts myproject.yml --tags group_mod
+  394  vim roles/myproject/tasks/main.yml
+  395  ansible-playbook -i inventory/anisahosts myproject.yml --tags group_mod
+  396  vim roles/myproject/tasks/main.yml
+  397  ansible-playbook -i inventory/anisahosts myproject.yml --tags user_mod
+  398  vim roles/myproject/tasks/main.yml
+  399  ansible-playbook -i inventory/anisahosts myproject.yml --tags user_mod
+  400  vim roles/myproject/tasks/main.yml
+  401  ansible-playbook -i inventory/anisahosts myproject.yml --tags yum_mod
+  402  vim roles/myproject/tasks/main.yml
+  403  ansible-playbook -i inventory/anisahosts myproject.yml --tags yum2_mod
+  404  vim roles/myproject/tasks/main.yml
+  405  ansible-playbook -i inventory/anisahosts myproject.yml --tags yum2_mod
+  406  vim roles/myproject/tasks/main.yml
+  407  cd /home/
+  408  ls
+  409  cp nginx.conf /home/ansible/provision/roles/myproject/templates/
+  410  vim roles/myproject/tasks/main.yml
+  411  cd /home/ansible/provision/
+  412  ls
+  413  vim roles/myproject/tasks/main.yml
+  414  ansible-playbook -i inventory/anisahosts myproject.yml --tags template_mod
+  415  vim roles/myproject/tasks/main.yml
+  416  ls
+  417  cd roles/
+  418  ls
+  419  cd myproject/
+  420  ls
+  421  cd templates/
+  422  ls
+  423  cd ..
+  424  ls
+  425  cd ..
+  426  ls
+  427  cd ..
+  428  ls
+  429  cd inventory/
+  430  ls
+  431  cd ..
+  432  ansible-playbook -i inventory/anisahosts myproject.yml --tags templates_mod
+  433  vim roles/myproject/tasks/main.yml
+  434  ansible-playbook -i inventory/anisahosts myproject.yml --tags templates_mod
+  435  vim roles/myproject/tasks/main.yml
+  436  ansible-playbook -i inventory/anisahosts myproject.yml --tags templates_mod
+  437  vim roles/myproject/tasks/main.yml
+  438  ansible-playbook -i inventory/anisahosts myproject.yml --tags templates_mod
+  439  vim roles/myproject/tasks/main.yml
+  440  ansible-playbook -i inventory/anisahosts myproject.yml --tags templates_mod
+  441  vim roles/myproject/tasks/main.yml
+  442  ansible-playbook -i inventory/anisahosts myproject.yml --tags templates_mod
+  443  vim roles/myproject/tasks/main.yml
+  444  ansible-playbook -i inventory/anisahosts myproject.yml --tags templates_mod
+  445  vim roles/myproject/tasks/main.yml
+  446  mv roles/myproject/templates/nginx.conf roles/myproject/templates/nginx.conf.j2
+  447  cd roles/myproject/templates/
+  448  ls
+  449  cd /home/ansible/provision/
+  450  ansible-playbook -i inventory/anisahosts myproject.yml --tags templates_mod
+  451  cd roles/myproject/templates/
+  452  vim nginx.conf.j2 
+  453  cd /home/ansible/provision/
+  454  ansible-playbook -i inventory/anisahosts myproject.yml --tags templates_mod
+  455  vim roles/myproject/tasks/main.yml
+  456  vim nginx.conf.j2 
+  457  vim /home/ansible/provision/roles/myproject/templates/nginx.conf.j2 
+  458  ansible-playbook -i inventory/anisahosts myproject.yml --tags templates_mod
+  459  vim roles/myproject/tasks/main.yml
+  460  ansible-playbook -i inventory/anisahosts myproject.yml --tags templates_mod
+  461  vim roles/myproject/tasks/main.yml
+  462  ansible-playbook -i inventory/anisahosts myproject.yml --tags lineinfile_mod
+  463  vim roles/myproject/tasks/main.yml
+  464  ansible-playbook -i inventory/anisahosts myproject.yml --tags lineinfile_mod
+  465  vim roles/myproject/tasks/main.yml
+  466  ansible-playbook -i inventory/anisahosts myproject.yml --tags lineinfile_mod
+  467  vim roles/myproject/tasks/main.yml
+  468  ansible-playbook -i inventory/anisahosts myproject.yml --tags lineinfile_mod
+  469  vim roles/myproject/tasks/main.yml
+  470  ansible-playbook -i inventory/anisahosts myproject.yml --tags lineinfile_mod
+  471  vim roles/myproject/tasks/main.yml
+  472  ansible-playbook -i inventory/anisahosts myproject.yml --tags replace_mod
+  473  vim roles/myproject/tasks/main.yml
+  474  ansible-playbook -i inventory/anisahosts myproject.yml --tags replace_mod
+  475  pwd
+  476  cd roles/myproject/tasks/main.yml 
+  477  pwd]
+  478  pwd
+  479  cd roles/myproject/tasks/ 
+  480  ls
+  481  pwd
+  482  ip a
+  483  ls
+  484  scp main.yml m2@192.168.1.5:/home/m2
+  485  history > txt2.txt
